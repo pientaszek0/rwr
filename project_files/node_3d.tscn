@@ -24,6 +24,8 @@ mesh = SubResource("BoxMesh_4xowi")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=596215835]
 
 [node name="Button" type="Button" parent="CanvasLayer" unique_id=2947607]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 66.0
+offset_top = 40.0
+offset_right = 245.0
+offset_bottom = 155.0
 text = "Enter VR"
