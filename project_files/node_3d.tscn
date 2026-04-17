@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://ccvxjwg6wiprf"]
 
 [ext_resource type="Script" uid="uid://cs7tdlnjn3kv3" path="res://main_node_script.gd" id="1_a202f"]
+[ext_resource type="ArrayMesh" uid="uid://bqhv1m0w10tej" path="res://assets/models/apple.obj" id="2_a0tk4"]
+[ext_resource type="ArrayMesh" uid="uid://crbx5ig3s7nc" path="res://assets/models/banana.obj" id="3_r3fl7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4xowi"]
 size = Vector3(0.1, 0.1, 0.1)
@@ -16,13 +18,25 @@ script = ExtResource("1_a202f")
 tracker = &"left_hand"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftController" unique_id=1347266736]
+visible = false
 mesh = SubResource("BoxMesh_4xowi")
+
+[node name="HandLeftRoot" type="Node3D" parent="XROrigin3D/LeftController" unique_id=1018114339]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftController/HandLeftRoot" unique_id=1369359855]
+mesh = ExtResource("2_a0tk4")
 
 [node name="RightController" type="XRController3D" parent="XROrigin3D" unique_id=702861936]
 tracker = &"right_hand"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightController" unique_id=1837727602]
+visible = false
 mesh = SubResource("BoxMesh_4xowi")
+
+[node name="HandRightRoot" type="Node3D" parent="XROrigin3D/RightController" unique_id=2125145003]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightController/HandRightRoot" unique_id=1413164674]
+mesh = ExtResource("3_r3fl7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=596215835]
 
