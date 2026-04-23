@@ -10,9 +10,9 @@ config_version=5
 
 [application]
 
-config/name="First Project"
-run/main_scene="uid://ccvxjwg6wiprf"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/name="Projekt MWiWR"
+run/main_scene="uid://bs3k8fvh37bf7"
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [physics]
@@ -22,6 +22,8 @@ config/icon="res://icon.svg"
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 
 [xr]
 

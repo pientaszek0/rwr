@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bs3k8fvh37bf7"]
+
+[ext_resource type="Script" uid="uid://b05xik55o2n48" path="res://main_script.gd" id="1_0f027"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_o3jxj"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0f027"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Node3D" type="Node3D" unique_id=1926957678]
+script = ExtResource("1_0f027")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=1926610704]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=565339605]
+transform = Transform3D(0.9647368, 0.10423221, -0.24169926, 0, 0.91825306, 0.39599437, 0.26321647, -0.38203034, 0.88587254, 0, 1.330712, 1.7801986)
+
+[node name="LeftController" type="XRController3D" parent="XROrigin3D" unique_id=151910520]
+tracker = &"left_hand"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftController" unique_id=1218886432]
+mesh = SubResource("BoxMesh_o3jxj")
+
+[node name="RightController" type="XRController3D" parent="XROrigin3D" unique_id=1125101334]
+tracker = &"right_hand"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightController" unique_id=720111405]
+mesh = SubResource("BoxMesh_0f027")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=555169017]
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1914903564]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -82.5
+offset_right = 125.0
+offset_bottom = 82.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Enter VR"
