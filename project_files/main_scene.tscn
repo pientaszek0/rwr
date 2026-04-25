@@ -94,6 +94,10 @@ tracker = &"left_hand"
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftController/HandLeftRoot" unique_id=1218886432]
 mesh = ExtResource("2_gyfs4")
 
+[node name="ActionLabel" type="Label3D" parent="XROrigin3D/LeftController" unique_id=1779498188]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28970265, 0)
+billboard = 1
+
 [node name="RightController" type="XRController3D" parent="XROrigin3D" unique_id=1125101334]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1877041, 0.7146666, 0)
 tracker = &"right_hand"

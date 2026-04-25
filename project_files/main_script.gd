@@ -1,6 +1,7 @@
 extends Node3D
 
 var webxr_interface
+@onready var action_label: Label3D = $XROrigin3D/LeftController/ActionLabel
 
 func _ready() -> void:
 	$CanvasLayer.visible = false
@@ -82,9 +83,15 @@ func _webxr_session_failed(message: String) -> void:
 
 func _on_left_controller_button_pressed(button: String) -> void:
 	print ("Button pressed: " + button)
+	# Wyświetlenie nazwy wciśniętego przycisku w przestrzeni 3D
+	if action_label:
+		action_label.text = "Wcisnieto: " + button
 
 func _on_left_controller_button_released(button: String) -> void:
 	print ("Button release: " + button)
+	# Wyświetlenie nazwy puszczonego przycisku w przestrzeni 3D
+	if action_label:
+		action_label.text = "Puszczono: " + button
 
 func _process(_delta: float) -> void:
 	var thumbstick_vector: Vector2 = $XROrigin3D/LeftController.get_vector2("thumbstick")
