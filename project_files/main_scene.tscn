@@ -83,7 +83,7 @@ shape = SubResource("CylinderShape3D_hq1ik")
 script = ExtResource("2_8mm7a")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=565339605]
-transform = Transform3D(-0.9663626, 0.10184312, -0.23615937, 6.575868e-10, 0.9182529, 0.39599422, 0.25718334, 0.38267404, -0.8873654, -1.882143, 1.330712, -5.9906282)
+transform = Transform3D(-0.26488304, 0.38184962, -0.88545364, 6.575869e-10, 0.918253, 0.39599428, 0.96428055, 0.10489219, -0.24322957, -1.882143, 1.330712, -5.9906282)
 
 [node name="LeftController" type="XRController3D" parent="XROrigin3D" unique_id=151910520]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5125319, 0.9918339, 0)
