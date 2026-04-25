@@ -99,10 +99,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28970265, 0)
 billboard = 1
 font_size = 15
 
-[node name="RayCast3D" type="RayCast3D" parent="XROrigin3D/LeftController" unique_id=229048972]
+[node name="TeleportRay" type="RayCast3D" parent="XROrigin3D/LeftController" unique_id=229048972]
 target_position = Vector3(0, 0, -10)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftController" unique_id=1356863327]
+[node name="TeleportMarker" type="MeshInstance3D" parent="XROrigin3D/LeftController" unique_id=1356863327]
 visible = false
 mesh = SubResource("SphereMesh_8mm7a")
 
