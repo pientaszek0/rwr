@@ -31,10 +31,6 @@ font_size = 127
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_hq1ik"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_8mm7a"]
-radius = 0.1
-height = 0.2
-
 [node name="MainScene" type="Node3D" unique_id=1926957678]
 script = ExtResource("1_0f027")
 
@@ -42,7 +38,7 @@ script = ExtResource("1_0f027")
 
 [node name="DirectionalLight" type="DirectionalLight3D" parent="Level" unique_id=1421545829]
 transform = Transform3D(0.8363532, 0.23601094, 0.49478507, -0.081425205, -0.8390826, 0.5378758, 0.5421101, -0.4901421, -0.68255216, 13.434639, 10, -16.061966)
-light_energy = 1.5
+light_energy = 0.5
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Level" unique_id=260189211]
@@ -106,8 +102,9 @@ font_size = 15
 target_position = Vector3(0, 0, -10)
 
 [node name="TeleportMarker" type="MeshInstance3D" parent="XROrigin3D/LeftController" unique_id=1356863327]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 visible = false
-mesh = SubResource("SphereMesh_8mm7a")
+mesh = ExtResource("2_gyfs4")
 
 [node name="RightController" type="XRController3D" parent="XROrigin3D" unique_id=1125101334]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1877041, 0.7146666, 0)
