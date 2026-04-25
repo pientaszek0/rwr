@@ -31,10 +31,9 @@ ambient_light_sky_contribution = 0.2
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hq1ik"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_gyfs4"]
-top_radius = 0.05
-bottom_radius = 0.05
-height = 0.2
+[sub_resource type="SphereMesh" id="SphereMesh_8mm7a"]
+radius = 0.1
+height = 0.1
 
 [node name="MainScene" type="Node3D" unique_id=1926957678]
 script = ExtResource("1_0f027")
@@ -88,6 +87,7 @@ transform = Transform3D(-0.96197504, 0.108160496, -0.25080842, -7.236541e-09, 0.
 [node name="LeftController" type="XRController3D" parent="XROrigin3D" unique_id=151910520]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5125319, 0.9918339, 0)
 tracker = &"left_hand"
+script = ExtResource("3_8mm7a")
 
 [node name="HandLeftRoot" type="Node3D" parent="XROrigin3D/LeftController" unique_id=1101213680]
 
@@ -97,23 +97,23 @@ mesh = ExtResource("2_gyfs4")
 [node name="ActionLabel" type="Label3D" parent="XROrigin3D/LeftController" unique_id=1779498188]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28970265, 0)
 billboard = 1
+font_size = 15
+
+[node name="RayCast3D" type="RayCast3D" parent="XROrigin3D/LeftController" unique_id=229048972]
+target_position = Vector3(0, 0, -10)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftController" unique_id=1356863327]
+visible = false
+mesh = SubResource("SphereMesh_8mm7a")
 
 [node name="RightController" type="XRController3D" parent="XROrigin3D" unique_id=1125101334]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1877041, 0.7146666, 0)
 tracker = &"right_hand"
-script = ExtResource("3_8mm7a")
 
 [node name="HandRightRoot" type="Node3D" parent="XROrigin3D/RightController" unique_id=711598930]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightController/HandRightRoot" unique_id=720111405]
 mesh = ExtResource("3_d5x1h")
-
-[node name="TeleportRay" type="RayCast3D" parent="XROrigin3D/RightController" unique_id=558836714]
-target_position = Vector3(0, 0, -10)
-
-[node name="TeleportMarker" type="MeshInstance3D" parent="XROrigin3D/RightController" unique_id=1977403507]
-visible = false
-mesh = SubResource("CylinderMesh_gyfs4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=555169017]
 
