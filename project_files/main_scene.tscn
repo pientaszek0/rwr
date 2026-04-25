@@ -32,6 +32,7 @@ script = ExtResource("1_0f027")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level" unique_id=1421545829]
 transform = Transform3D(0.8363532, 0.23601097, 0.49478516, -0.081425205, -0.83908254, 0.5378758, 0.5421101, -0.49014205, -0.6825521, 13.434639, 10, -16.061966)
+light_energy = 1.5
 
 [node name="Floor" type="StaticBody3D" parent="Level" unique_id=1014550124]
 
