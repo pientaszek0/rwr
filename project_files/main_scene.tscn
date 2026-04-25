@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://bs3k8fvh37bf7"]
 
 [ext_resource type="Script" uid="uid://b05xik55o2n48" path="res://main_script.gd" id="1_0f027"]
+[ext_resource type="Script" uid="uid://63x813v8yk4w" path="res://movement.gd" id="2_8mm7a"]
 [ext_resource type="ArrayMesh" uid="uid://dukswvmuqaybt" path="res://assets/models/apple_apple.res" id="2_gyfs4"]
+[ext_resource type="Script" uid="uid://bxncccgwrqsf0" path="res://teleport.gd" id="3_8mm7a"]
 [ext_resource type="ArrayMesh" uid="uid://dre35lvplqlow" path="res://assets/models/banana_banana.res" id="3_d5x1h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gyfs4"]
@@ -9,10 +11,6 @@ size = Vector3(20, 0.1, 20)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_d5x1h"]
 size = Vector2(20, 20)
-
-[sub_resource type="BoxMesh" id="BoxMesh_8mm7a"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_hq1ik"]
 
 [sub_resource type="TextMesh" id="TextMesh_nfk4m"]
 text = "Welcome to VR"
@@ -25,30 +23,31 @@ ambient_light_sky_contribution = 0.2
 
 [sub_resource type="Compositor" id="Compositor_d5x1h"]
 
-[node name="Main Scene" type="Node3D" unique_id=1926957678]
+[sub_resource type="BoxMesh" id="BoxMesh_8mm7a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8mm7a"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hq1ik"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hq1ik"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gyfs4"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.2
+
+[node name="MainScene" type="Node3D" unique_id=1926957678]
 script = ExtResource("1_0f027")
 
 [node name="Level" type="Node3D" parent="." unique_id=1323058957]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level" unique_id=1421545829]
-transform = Transform3D(0.8363532, 0.23601097, 0.49478516, -0.081425205, -0.83908254, 0.5378758, 0.5421101, -0.49014205, -0.6825521, 13.434639, 10, -16.061966)
-light_energy = 1.5
 
 [node name="Floor" type="StaticBody3D" parent="Level" unique_id=1014550124]
 
 [node name="Collision" type="CollisionShape3D" parent="Level/Floor" unique_id=2098967914]
 shape = SubResource("BoxShape3D_gyfs4")
 
-[node name="Plane" type="MeshInstance3D" parent="Level/Floor" unique_id=1314805528]
+[node name="Shape" type="MeshInstance3D" parent="Level/Floor" unique_id=1314805528]
 mesh = SubResource("PlaneMesh_d5x1h")
-
-[node name="Box" type="MeshInstance3D" parent="Level" unique_id=1549014424]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.699779, 0.5, -3.286685)
-mesh = SubResource("BoxMesh_8mm7a")
-
-[node name="Cylinder" type="MeshInstance3D" parent="Level" unique_id=1066242716]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2660656, 1, -1.4857004)
-mesh = SubResource("CylinderMesh_hq1ik")
 
 [node name="Text" type="MeshInstance3D" parent="Level" unique_id=471546648]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.5, 4.7625966)
@@ -58,12 +57,36 @@ mesh = SubResource("TextMesh_nfk4m")
 environment = SubResource("Environment_gyfs4")
 compositor = SubResource("Compositor_d5x1h")
 
+[node name="DirectionalLight" type="DirectionalLight3D" parent="Level" unique_id=1421545829]
+transform = Transform3D(0.8363532, 0.23601094, 0.49478507, -0.081425205, -0.8390826, 0.5378758, 0.5421101, -0.4901421, -0.68255216, 13.434639, 10, -16.061966)
+light_energy = 1.5
+
+[node name="Box" type="StaticBody3D" parent="Level" unique_id=2006798102]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.699779, 0.5, -3.286685)
+
+[node name="Shape" type="MeshInstance3D" parent="Level/Box" unique_id=1549014424]
+mesh = SubResource("BoxMesh_8mm7a")
+
+[node name="Collision" type="CollisionShape3D" parent="Level/Box" unique_id=1941177910]
+shape = SubResource("BoxShape3D_8mm7a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level" unique_id=644573092]
+
+[node name="Shape" type="MeshInstance3D" parent="Level/StaticBody3D" unique_id=1066242716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2660656, 1, -1.4857004)
+mesh = SubResource("CylinderMesh_hq1ik")
+
+[node name="Collision" type="CollisionShape3D" parent="Level/StaticBody3D" unique_id=589737897]
+shape = SubResource("CylinderShape3D_hq1ik")
+
 [node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=1926610704]
+script = ExtResource("2_8mm7a")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=565339605]
 transform = Transform3D(-0.9663626, 0.10184312, -0.23615937, 6.575868e-10, 0.9182529, 0.39599422, 0.25718334, 0.38267404, -0.8873654, -1.882143, 1.330712, -5.9906282)
 
 [node name="LeftController" type="XRController3D" parent="XROrigin3D" unique_id=151910520]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5125319, 0.9918339, 0)
 tracker = &"left_hand"
 
 [node name="HandLeftRoot" type="Node3D" parent="XROrigin3D/LeftController" unique_id=1101213680]
@@ -72,12 +95,21 @@ tracker = &"left_hand"
 mesh = ExtResource("2_gyfs4")
 
 [node name="RightController" type="XRController3D" parent="XROrigin3D" unique_id=1125101334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1877041, 0.7146666, 0)
 tracker = &"right_hand"
+script = ExtResource("3_8mm7a")
 
 [node name="HandRightRoot" type="Node3D" parent="XROrigin3D/RightController" unique_id=711598930]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightController/HandRightRoot" unique_id=720111405]
 mesh = ExtResource("3_d5x1h")
+
+[node name="TeleportRay" type="RayCast3D" parent="XROrigin3D/RightController" unique_id=558836714]
+target_position = Vector3(0, 0, -10)
+
+[node name="TeleportMarker" type="MeshInstance3D" parent="XROrigin3D/RightController" unique_id=1977403507]
+visible = false
+mesh = SubResource("CylinderMesh_gyfs4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=555169017]
 
