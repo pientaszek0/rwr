@@ -23,12 +23,9 @@ func teleport_now() -> void:
 	var target: Vector3 = ray.get_collision_point()
 
 	var origin_tf := xr_origin.global_transform
-	#var cam_tf := xr_camera.global_transform
-	#var cam_offset := cam_tf.origin - origin_tf.origin
-	#origin_tf.origin = target - cam_offset
-	
-	# Height sabilisation
-	var cam_offset = 0.0
-	origin_tf.origin = Vector3(target.x - cam_offset.x, target.y, target.z - cam_offset.z)
+	var cam_tf := xr_camera.global_transform
+	var cam_offset := cam_tf.origin - origin_tf.origin
+	cam_offset.y = 0.0
+	origin_tf.origin = target - cam_offset
 	
 	xr_origin.global_transform = origin_tf
