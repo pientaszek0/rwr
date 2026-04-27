@@ -90,7 +90,7 @@ script = ExtResource("3_8mm7a")
 [node name="HandLeftRoot" type="Node3D" parent="XROrigin3D/LeftController" unique_id=1101213680]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftController/HandLeftRoot" unique_id=1218886432]
+[node name="Aplle" type="MeshInstance3D" parent="XROrigin3D/LeftController/HandLeftRoot" unique_id=1218886432]
 mesh = ExtResource("2_gyfs4")
 
 [node name="ActionLabel" type="Label3D" parent="XROrigin3D/LeftController" unique_id=1779498188]
@@ -113,7 +113,7 @@ tracker = &"right_hand"
 [node name="HandRightRoot" type="Node3D" parent="XROrigin3D/RightController" unique_id=711598930]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightController/HandRightRoot" unique_id=720111405]
+[node name="Banana" type="MeshInstance3D" parent="XROrigin3D/RightController/HandRightRoot" unique_id=720111405]
 mesh = ExtResource("3_d5x1h")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=555169017]
